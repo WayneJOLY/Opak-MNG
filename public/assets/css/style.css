@@ -153,8 +153,14 @@ p { font-size: 1rem; font-weight: 400; color: var(--text-secondary); }
     color: var(--text-primary);
 }
 
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 .nav-cta {
-    margin-left: 30px;
+    margin-left: 0;
 }
 
 .theme-toggle {
@@ -390,7 +396,7 @@ form button {
         margin: 0;
     }
 
-    .nav-cta {
+    .nav-actions {
         display: none;
     }
 
