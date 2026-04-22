@@ -29,7 +29,7 @@ const App = {
         const themeToggle = document.querySelector('.theme-toggle');
         if (themeToggle) {
             const isLight = document.body.classList.contains('light-theme');
-            themeToggle.innerHTML = isLight ? '☀️' : '🌙';
+            themeToggle.innerHTML = isLight ?  '🌙':'☀️';
         }
     },
 

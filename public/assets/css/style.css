@@ -15,7 +15,7 @@
 }
 
 .light-theme {
-    --bg-main: #F8F9FA;
+    --bg-main: #eff2f6;
     --bg-surface: #FFFFFF;
     --accent: #007BFF;
     --accent-hover: #0056b3;
@@ -150,7 +150,7 @@ p { font-size: 1rem; font-weight: 400; color: var(--text-secondary); }
 
 .nav-links a:hover,
 .nav-links a.active {
-    color: var(--text-primary);
+    color: var(--accent);
 }
 
 .nav-actions {
@@ -316,10 +316,14 @@ form button {
 .footer-content {
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .footer-links {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     gap: 2rem;
     margin-bottom: 2rem;
@@ -370,17 +374,18 @@ form button {
     .nav-links {
         display: none;
         position: fixed;
-        top: 0;
+        top: 70px;
         left: 0;
         right: 0;
         bottom: 0;
         background: var(--bg-main);
         flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 0;
+        justify-content: flex-start;
+        align-items: flex-start;
+        padding: 0 var(--container-padding);
         margin: 0;
         z-index: 999;
+        overflow-y: auto;
     }
 
     .nav-links.active {
@@ -388,16 +393,21 @@ form button {
     }
 
     .nav-links li {
-        margin: 15px 0;
+        margin: 0;
+        width: 100%;
+        border-bottom: 1px solid var(--border-color);
     }
 
     .nav-links a {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         margin: 0;
+        padding: 15px 0;
+        display: block;
     }
 
     .nav-actions {
-        display: none;
+        display: flex;
+        gap: 15px;
     }
 
     .hamburger {
