@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Opak MNG</title>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="logo">OPAK MNG</a>
+        <ul class="nav-links">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="about.html">Acerca de</a></li>
+            <li><a href="artist.html">Artista</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html" class="active">Contacto</a></li>
+        </ul>
+        <button class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+        <a href="login.html" class="btn btn-primary nav-cta">Acceso</a>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Contacto</h1>
+                <p>¿Tienes alguna consulta o quieres trabajar con nosotros? Escríbenos.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <form id="contactForm">
+                    <div style="margin-bottom: 20px;">
+                        <input type="text" name="name" placeholder="Nombre completo" required>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="email" name="email" placeholder="Email" required>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <input type="text" name="subject" placeholder="Asunto" required>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <textarea name="message" placeholder="Mensaje" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-links">
+                <a href="index.html">Inicio</a>
+                <a href="about.html">Acerca de</a>
+                <a href="contact.html">Contacto</a>
+                <a href="login.html">Acceso</a>
+            </div>
+            <div class="social-links">
+                <a href="#">FB</a>
+                <a href="#">IG</a>
+                <a href="#">YT</a>
+            </div>
+            <p class="copyright">&copy; 2026 Opak MNG. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
