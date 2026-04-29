@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-    --bg-main: #000000;
-    --bg-surface: #1A1A1A;
-    --accent: #007BFF;
-    --accent-hover: #0056b3;
+    --bg-main: #0A0A0A;
+    --bg-surface: #141414;
+    --accent: #FF3D00;
+    --accent-hover: #DD2C00;
+    --accent-2: #00E5FF;
     --text-primary: #FFFFFF;
-    --text-secondary: #B0B0B0;
-    --border-color: #333333;
+    --text-secondary: #888888;
+    --border-color: #2A2A2A;
     --border-radius-card: 16px;
     --border-radius-pill: 50px;
     --section-padding: 100px;
@@ -368,6 +369,281 @@ form button {
 
 .light-theme .social-links a {
     background: rgba(0,0,0,0.1);
+}
+
+.hero-tag {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.hero-tagline {
+    font-size: 1.5rem !important;
+    color: var(--text-secondary) !important;
+    margin-bottom: 2rem !important;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, #0A0A0A 0%, #1A1A1A 50%, #0A0A0A 100%);
+    z-index: -1;
+}
+
+.hero-content {
+    text-align: center;
+}
+
+.latest-release {
+    background: var(--bg-surface);
+}
+
+.release-cover {
+    aspect-ratio: 1;
+    background: var(--border-color);
+    border-radius: var(--border-radius-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.release-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.release-info h3 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.release-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.track-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.track-item {
+    display: flex;
+    align-items: center;
+    background: var(--bg-surface);
+    padding: 1rem 1.5rem;
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.track-item:hover {
+    border-color: var(--accent);
+}
+
+.track-number {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent);
+    margin-right: 1.5rem;
+    min-width: 30px;
+}
+
+.track-info {
+    flex: 1;
+}
+
+.track-info h4 {
+    margin-bottom: 0.25rem;
+}
+
+.track-info p {
+    font-size: 0.875rem;
+}
+
+.btn-play {
+    width: 44px;
+    height: 44px;
+    background: var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-play:hover {
+    background: var(--accent-hover);
+    transform: scale(1.1);
+}
+
+.video-card {
+    background: var(--bg-surface);
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+
+.video-placeholder {
+    aspect-ratio: 16/9;
+    background: var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.video-card h3 {
+    padding: 1.25rem;
+    font-size: 1rem;
+}
+
+.about-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.about-text p {
+    margin-bottom: 1rem;
+}
+
+.about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-item {
+    background: var(--bg-surface);
+    padding: 2rem;
+    border-radius: var(--border-radius-card);
+    text-align: center;
+    border: 1px solid var(--border-color);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.concert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.concert-item {
+    display: flex;
+    align-items: center;
+    background: var(--bg-surface);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--border-color);
+}
+
+.concert-date {
+    text-align: center;
+    padding: 1rem;
+    background: var(--bg-main);
+    border-radius: 8px;
+    margin-right: 1.5rem;
+    min-width: 70px;
+}
+
+.date-day {
+    display: block;
+    font-size: 1.75rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.date-month {
+    font-size: 0.75rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.concert-info {
+    flex: 1;
+}
+
+.concert-info h4 {
+    margin-bottom: 0.25rem;
+}
+
+.concert-info p {
+    font-size: 0.875rem;
+}
+
+.collab-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}
+
+.collab-logos span {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    opacity: 0.5;
+}
+
+.cta {
+    background: linear-gradient(135deg, var(--accent) 0%, #8B0000 100%);
+    text-align: center;
+}
+
+.cta h2 {
+    color: #fff;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.section-footer {
+    text-align: center;
+    margin-top: 2rem;
 }
 
 @media (max-width: 992px) {

@@ -13,17 +13,11 @@
             <li><a href="index.html" class="active">Inicio</a></li>
             <li><a href="artist.html">Biografía</a></li>
             <li><a href="discografia.html">Discografía</a></li>
-            <li><a href="canciones.html">Canciones</a></li>
-            <li><a href="videos.html">Videos</a></li>
-            <li><a href="galeria.html">Galería</a></li>
+            <li><a href="multimedia.html">Multimedia</a></li>
             <li><a href="conciertos.html">Conciertos</a></li>
             <li><a href="blog.html">Noticias</a></li>
             <li><a href="contact.html">Contacto</a></li>
         </ul>
-        <div class="nav-actions">
-            <button class="theme-toggle" aria-label="Cambiar tema">🌙</button>
-            <a href="login.html" class="btn btn-primary nav-cta">Acceso</a>
-        </div>
         <div class="hamburger">
             <span></span>
             <span></span>
@@ -33,29 +27,169 @@
 
     <main>
         <section class="hero">
+            <div class="hero-bg"></div>
             <div class="container">
-                <h1>Bienvenido a Opak MNG</h1>
-                <p>Tu agencia de música y entretenimiento. Promoviendo talento artístico desde Buenos Aires.</p>
-                <a href="contact.html" class="btn btn-primary">Contáctanos</a>
+                <div class="hero-content">
+                    <span class="hero-tag">NUEVO ÁLBUBM 2026</span>
+                    <h1>OPAK MNG</h1>
+                    <p class="hero-tagline">"De las calles a la cima, la voz de Buenos Aires"</p>
+                    <div class="hero-buttons">
+                        <a href="https://spotify.com" class="btn btn-primary" target="_blank">ESCUCHAR EN SPOTIFY</a>
+                        <a href="multimedia.html" class="btn btn-secondary">VER VÍDEO</a>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section latest-release">
             <div class="container">
-                <h2 class="section-title">Nuestros Servicios</h2>
-                <div class="grid grid-3">
-                    <div class="card">
-                        <h3>Gestión Artística</h3>
-                        <p>Administración integral de tu carrera musical con estrategias personalizadas.</p>
+                <h2 class="section-title">ÚLTIMO LANZAMIENTO</h2>
+                <div class="grid grid-2">
+                    <div class="release-cover">
+                        <div class="album-placeholder">PORTADA</div>
                     </div>
-                    <div class="card">
-                        <h3>Producción Musical</h3>
-                        <p>Estudio de grabación profesional con producers reconocidos.</p>
+                    <div class="release-info">
+                        <h3>ÁLBUM [NOMBRE]</h3>
+                        <p>El nuevo proyecto de Opak MNG. 10 tracks全新的声音来自布宜诺斯艾利斯。</p>
+                        <div class="release-links">
+                            <a href="https://spotify.com" class="btn btn-primary">SPOTIFY</a>
+                            <a href="https://youtube.com" class="btn btn-secondary">YOUTUBE</a>
+                        </div>
                     </div>
-                    <div class="card">
-                        <h3>Booking y Eventos</h3>
-                        <p>Organización de conciertos y presentaciones en los mejores escenarios.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section music-preview">
+            <div class="container">
+                <h2 class="section-title">TOP CANCIONES</h2>
+                <div class="track-list">
+                    <div class="track-item">
+                        <span class="track-number">01</span>
+                        <div class="track-info">
+                            <h4>Canción 1</h4>
+                            <p>Álbum | 3:45</p>
+                        </div>
+                        <a href="#" class="btn-play">▶</a>
                     </div>
+                    <div class="track-item">
+                        <span class="track-number">02</span>
+                        <div class="track-info">
+                            <h4>Canción 2</h4>
+                            <p>Álbum | 4:12</p>
+                        </div>
+                        <a href="#" class="btn-play">▶</a>
+                    </div>
+                    <div class="track-item">
+                        <span class="track-number">03</span>
+                        <div class="track-info">
+                            <h4>Canción 3</h4>
+                            <p>Álbum | 3:30</p>
+                        </div>
+                        <a href="#" class="btn-play">▶</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section videos-section">
+            <div class="container">
+                <h2 class="section-title">VÍDEOS</h2>
+                <div class="grid grid-2">
+                    <div class="video-card">
+                        <div class="video-placeholder">VIDEO OFICIAL</div>
+                        <h3>Canción - Official Video</h3>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-placeholder">LYRIC VIDEO</div>
+                        <h3>Canción - Lyric Video</h3>
+                    </div>
+                </div>
+                <div class="section-footer">
+                    <a href="multimedia.html" class="btn btn-primary">VER TODOS LOS VÍDEOS</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section about-preview">
+            <div class="container">
+                <h2 class="section-title">SOBRE OPAK MNG</h2>
+                <div class="grid grid-2">
+                    <div class="about-text">
+                        <p>Opak MNG es un artista de rap argentino que transforma las calles en letras y la realidad en música. Desde Buenos Aires, lleva su mensaje auténtico a cada escenario.</p>
+                        <p>Con más de [X] años en la escena, ha compartido escenario con los principales artistas del rap latino y ha acumulado millones de reproducciones.</p>
+                        <a href="artist.html" class="btn btn-secondary">LEER MÁS</a>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">[10K+]</span>
+                            <span class="stat-label">SEGUIDORES</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">[1M+]</span>
+                            <span class="stat-label">REPRODUCCIONES</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">[50+]</span>
+                            <span class="stat-label">CONCIERTOS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section concerts-preview">
+            <div class="container">
+                <h2 class="section-title">PRÓXIMOS CONCIERTOS</h2>
+                <div class="concert-list">
+                    <div class="concert-item">
+                        <div class="concert-date">
+                            <span class="date-day">15</span>
+                            <span class="date-month">MAY</span>
+                        </div>
+                        <div class="concert-info">
+                            <h4>Festival Urbano</h4>
+                            <p>Buenos Aires, Argentina</p>
+                        </div>
+                        <a href="#" class="btn btn-primary">ENTRADAS</a>
+                    </div>
+                    <div class="concert-item">
+                        <div class="concert-date">
+                            <span class="date-day">22</span>
+                            <span class="date-month">MAY</span>
+                        </div>
+                        <div class="concert-info">
+                            <h4>Club K</h4>
+                            <p>Córdoba, Argentina</p>
+                        </div>
+                        <a href="#" class="btn btn-primary">ENTRADAS</a>
+                    </div>
+                </div>
+                <div class="section-footer">
+                    <a href="conciertos.html" class="btn btn-secondary">VER TODOS LOS SHOWS</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="section collaborations">
+            <div class="container">
+                <h2 class="section-title">ARTISTAS RELACIONADOS</h2>
+                <div class="collab-logos">
+                    <span>ARTISTA 1</span>
+                    <span>ARTISTA 2</span>
+                    <span>ARTISTA 3</span>
+                    <span>ARTISTA 4</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta">
+            <div class="container">
+                <h2>ESCUCHA, SIGUE, BOOKEA</h2>
+                <div class="cta-buttons">
+                    <a href="https://spotify.com" class="btn btn-primary" target="_blank">SPOTIFY</a>
+                    <a href="https://instagram.com" class="btn btn-primary" target="_blank">INSTAGRAM</a>
+                    <a href="contact.html" class="btn btn-secondary">BOOKING</a>
                 </div>
             </div>
         </section>
@@ -66,8 +200,8 @@
             <div class="footer-links">
                 <a href="index.html">Inicio</a>
                 <a href="artist.html">Biografía</a>
+                <a href="multimedia.html">Multimedia</a>
                 <a href="contact.html">Contacto</a>
-                <a href="login.html">Acceso</a>
             </div>
             <div class="social-links">
                 <a href="#">FB</a>
