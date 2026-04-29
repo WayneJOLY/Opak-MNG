@@ -918,6 +918,295 @@ form button {
     font-size: 1.1rem;
 }
 
+.music-player-section {
+    background: var(--bg-surface);
+}
+
+.now-playing {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 3rem;
+    background: var(--bg-main);
+    padding: 2rem;
+    border-radius: var(--border-radius-card);
+    border: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+}
+
+.player-cover {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cover-art {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--border-color);
+    border-radius: var(--border-radius-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.player-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.player-label {
+    display: inline-block;
+    color: var(--accent);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.player-content h3 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.player-album {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.player-controls {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.control-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    color: var(--text-primary);
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.control-btn.play {
+    width: 60px;
+    height: 60px;
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.control-btn.play:hover {
+    background: var(--accent-hover);
+    transform: scale(1.1);
+}
+
+.player-progress {
+    margin-bottom: 1.5rem;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 3px;
+}
+
+.progress-time {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+}
+
+.player-platforms {
+    display: flex;
+    gap: 1rem;
+}
+
+.platform-link {
+    padding: 8px 16px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.platform-link:hover {
+    border-color: var(--accent);
+}
+
+.track-list-title {
+    margin-bottom: 1.5rem;
+    font-size: 1.25rem;
+}
+
+.video-tabs,
+.gallery-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tab-btn {
+    padding: 10px 24px;
+    background: var(--bg-surface);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-pill);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.tab-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.video-card {
+    background: var(--bg-surface);
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.video-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+}
+
+.video-card.featured {
+    grid-column: span 2;
+}
+
+.video-thumbnail {
+    aspect-ratio: 16/9;
+    background: var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.play-overlay {
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,0.7);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #fff;
+    transition: all 0.3s ease;
+}
+
+.video-thumbnail:hover .play-overlay {
+    background: var(--accent);
+    transform: scale(1.1);
+}
+
+.video-info {
+    padding: 1.25rem;
+}
+
+.video-badge {
+    display: inline-block;
+    background: var(--accent);
+    color: #fff;
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.625rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+}
+
+.video-info h3 {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.video-info p {
+    font-size: 0.875rem;
+}
+
+.gallery-section {
+    background: var(--bg-surface);
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.gallery-item {
+    aspect-ratio: 1;
+    border-radius: var(--border-radius-card);
+    overflow: hidden;
+}
+
+.gallery-item.large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-placeholder {
+    width: 100%;
+    height: 100%;
+    background: var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    transition: all 0.3s ease;
+}
+
+.gallery-item:hover .gallery-placeholder {
+    background: var(--accent);
+}
+
 @media (max-width: 768px) {
     .album-header {
         grid-template-columns: 1fr;
@@ -935,6 +1224,30 @@ form button {
     
     .album-links {
         justify-content: center;
+    }
+
+    .now-playing {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .player-cover {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .player-platforms {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .video-card.featured {
+        grid-column: span 1;
+    }
+
+    .gallery-item.large {
+        grid-column: span 1;
+        grid-row: span 1;
     }
 }
 
