@@ -50,17 +50,37 @@ const App = {
 
         if (hamburger && navMenu) {
             hamburger.addEventListener('click', () => {
+                // Toggle visual state
                 hamburger.classList.toggle('active');
                 navMenu.classList.toggle('active');
-                body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+                
+                // Update ARIA attributes for accessibility
+                const isExpanded = hamburger.classList.contains('active');
+                hamburger.setAttribute('aria-expanded', isExpanded);
+                
+                // Prevent body scroll when menu is open
+                body.style.overflow = isExpanded ? 'hidden' : '';
             });
 
+            // Close menu when clicking a link
             navMenu.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', () => {
                     hamburger.classList.remove('active');
                     navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
                     body.style.overflow = '';
                 });
+            });
+            
+            // Close menu when pressing Escape key
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    body.style.overflow = '';
+                    hamburger.focus();
+                }
             });
         }
     },

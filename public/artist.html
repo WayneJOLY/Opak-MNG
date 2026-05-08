@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ht">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <a href="#main-content" class="skip-link">Ale nan kontni prensipal</a>
+
+    <nav class="navbar" role="navigation" aria-label="Navigasyon prensipal">
         <a href="index.html" class="logo">OPAK MNG</a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="main-menu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artist.html" class="active">Biografía</a></li>
             <li><a href="discografia.html">Discografía</a></li>
@@ -20,44 +22,226 @@
         </ul>
         <div class="nav-actions">
             <button class="theme-toggle" aria-label="Cambiar tema">🌙</button>
-            <a href="login.html" class="btn btn-primary nav-cta">Acceso</a>
-        </div>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <button class="hamburger" aria-label="Meni ouvri" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <main>
-        <section class="hero">
+    <main id="main-content">
+        <section class="hero bio-hero">
+            <div class="hero-bg"></div>
             <div class="container">
-                <h1>Opak MNG</h1>
-                <p>Artista de rap argentino que transforma las calles en letras y la realidad en música.</p>
-                <a href="contact.html" class="btn btn-primary">Trabaja con nosotros</a>
+                <div class="bio-header">
+                    <div class="artist-image">OPAK<br>MNG</div>
+                    <div class="hero-content">
+                        <h1>OPAK MNG</h1>
+                        <p class="hero-tagline">"VWA NAN LARI A, VWA NAN MONDE A"</p>
+                        <p>Se yon rapè ayisyen. Se yon vwa ki kriye pou peyi a. Se yon lafwa ki pa kanpe.</p>
+                        <div class="hero-buttons">
+                            <a href="multimedia.html" class="btn btn-primary">TANNDE MWIZIK</a>
+                            <a href="conciertos.html" class="btn btn-secondary">WÈ SHOWS</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section story-section">
             <div class="container">
-                <h2 class="section-title">Línea de Tiempo</h2>
-                <div class="grid grid-2">
-                    <div class="card">
-                        <h4>2018</h4>
-                        <p>Primeras presentaciones en escenarios locales de Buenos Aires</p>
+                <h2 class="section-title">ISTWA MWEN</h2>
+                <div class="story-content">
+                    <div class="story-text">
+                        <p class="story-intro">Mwen grands nan Pòtoprens. Se la kijan tout kòmanse.</p>
+                        
+                        <p>Lè mwen tèti timòn, mwen tande mizik nan ri yo. Ti moun ki jwe bal, ti granmoun ki fè senk. Se yon vil ki fè mizik, se yon vil ki kriye. Mwen grandi nan son sa a.</p>
+                        
+                        <p>Mwen kòmanse rap lè mwen gen 14 zan. Yon ti gitar nan men m, yon ti notebook. Mwen ekri premye fraz la: <em>"Mwen pa janm chape, mwen kanpe."</em> Se te yon minik. Men se te vwa mwen.</p>
+                        
+                        <p>Mwen te gen yon rèv: fè ayisyen tande non mwen. Mwen pa te vle fè sa pou lajan. Mwen te vle fè sa pou lafwa. Pou moun ki tankou mwen, ki soti nan ri yo, ki pa gen anyen men dezanse.</p>
                     </div>
-                    <div class="card">
-                        <h4>2020</h4>
-                        <p>Lanzamiento del primer EP "Versos de Barrio"</p>
+                    <div class="story-quote">
+                        <blockquote>
+                            <p>"Se pa lajan ki fè moun grandi. Se lafwa."</p>
+                            <cite>— OPAK MNG</cite>
+                        </blockquote>
                     </div>
-                    <div class="card">
-                        <h4>2022</h4>
-                        <p>Colaboración con artistas emergentes de la escena rap latinoamericana</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section influences-section">
+            <div class="container">
+                <h2 class="section-title">KI MOUN KI ENFLIWANS MWEN</h2>
+                <p class="section-subtitle">Mizik se eritaj. Se sa mwen tande a ki fè mwen.</p>
+                
+                <div class="influences-grid">
+                    <div class="influence-card">
+                        <span class="influence-icon">🎤</span>
+                        <h3>WYCLE JEAN</h3>
+                        <p>Rwa. Se li ki fè mwen tande rap ka gen yon vwa. Se li ki montre mwen pawòl ka gen sans.</p>
                     </div>
-                    <div class="card">
-                        <h4>2024</h4>
-                        <p>Gira nacional con más de 20 conciertos</p>
+                    
+                    <div class="influence-card">
+                        <span class="influence-icon">🎤</span>
+                        <h3>MAESTRO</h3>
+                        <p>Rwa AYITI. Mwen grandi ak li. Estil li, lang li, fason li voye vwa a.</p>
                     </div>
+                    
+                    <div class="influence-card">
+                        <span class="influence-icon">🎤</span>
+                        <h3>2 SHOT</h3>
+                        <p>Se yon zanmi. Se yon vwa. Nou fè kolaborasyon ansanm. Se tanzanite.</p>
+                    </div>
+                    
+                    <div class="influence-card">
+                        <span class="influence-icon">🎤</span>
+                        <h3>NAS</h3>
+                        <p>Nas. Se yonlegend. Se li ki montre mwen rap ka pase tan.</p>
+                    </div>
+                    
+                    <div class="influence-card">
+                        <span class="influence-icon">🎤</span>
+                        <h3>TUPAC</h3>
+                        <p>Se yon lekti. Se yon fason pou wè lavi. Pawòl li toujou viv.</p>
+                    </div>
+                    
+                    <div class="influence-card">
+                        <span class="influence-icon">🎤</span>
+                        <h3>BOB MARLEY</h3>
+                        <p>Se lafwa an rish. Mizik ka chanje lemonn. Se li ki fè mwen kwè sa.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section timeline-section">
+            <div class="container">
+                <h2 class="section-title">JBENN LAN</h2>
+                <p class="section-subtitle">Soti 2018 jiskèk se yon vwayaj.</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-year">2026</div>
+                        <div class="timeline-content">
+                            <h3>AKÈ NOU (VOIX OU)</h3>
+                            <p>Dènye albòm. 10 tracks ki reprezante tout. Peyi a, fanm yo, lavi a.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2025</div>
+                        <div class="timeline-content">
+                            <h3>TOURNE MONDIAL</h3>
+                            <p>30+ shows nan 10 peyi. Nou fè moun tandeAyiti.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2024</div>
+                        <div class="timeline-content">
+                            <h3>POV WE</h3>
+                            <p>Pwemye albòm ofisyèl. 8 tracks. Yon konstelasyon.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2023</div>
+                        <div class="timeline-content">
+                            <h3>MIAMI / NEW YORK</h3>
+                            <p>Nou fè eksperyans US a. Se te yon rish.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2022</div>
+                        <div class="timeline-content">
+                            <h3>MNBA (EP)</h3>
+                            <p>Pwemye pwojè ofisyèl. Mwen gen yon vwa.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-year">2018</div>
+                        <div class="timeline-content">
+                            <h3>KOMANSE</h3>
+                            <p>Mwen kòmanse fè mizik. Se te yon dènye.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section mission-section">
+            <div class="container">
+                <h2 class="section-title">MISYON MWEN</h2>
+                
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <h3>1. VWA PEYI A</h3>
+                        <p>Se pou moun ki pa gen vwa. Se pou ti moun ki soti nan ri ki kwè pa gen anyen posib. Mwen vle fè yo tande: "Wi, ou ka fè li."</p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <h3>2. PRESVE LANG</h3>
+                        <p>Kreyòl mwen an. Se lang manman mwen. Mwen pral itilize li jiskeb pou lemonn tande li. Se yon eritaj.</p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <h3>3. FÈ MWIZIK</h3>
+                        <p>Pa pou lajan. Pou lafwa. Mizik ka chanje kè. Mizik ka chanje lespri. Mizik ka chanje lemonn.</p>
+                    </div>
+                </div>
+                
+                <div class="mission-quote">
+                    <blockquote>
+                        <p>"Mwen pa rapè pou lajan. Mwen rapè pou kè ou menm. Mwen rapè pou moun ki chape, pou moun ki kanpe, pou moun ki poko fin chape."</p>
+                        <cite>— OPAK MNG</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="section stats-section">
+            <div class="container">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">8+</span>
+                        <span class="stat-label">ZAN</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">ALBÒM</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">100+</span>
+                        <span class="stat-label">SHOWS</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">2M+</span>
+                        <span class="stat-label">STREAMS</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">15+</span>
+                        <span class="stat-label">PEYI</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">50K+</span>
+                        <span class="stat-label">FAN</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta">
+            <div class="container">
+                <h2>WANNA KONEKT?</h2>
+                <p class="cta-subtitle">Fè yon kolaborasyon? Fè yon show? Voye mesaj.</p>
+                <div class="cta-buttons">
+                    <a href="contact.html" class="btn btn-primary">KONTAKTE</a>
+                    <a href="multimedia.html" class="btn btn-secondary">TANNDE MWIZIK</a>
                 </div>
             </div>
         </section>
@@ -76,7 +260,7 @@
                 <a href="#">IG</a>
                 <a href="#">YT</a>
             </div>
-            <p class="copyright">&copy; 2026 Opak MNG. Todos los derechos reservados.</p>
+            <p class="copyright">&copy; 2026 Opak MNG. Tout dwa rezève.</p>
         </div>
     </footer>
 

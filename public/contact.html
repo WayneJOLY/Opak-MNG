@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ht">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <a href="#main-content" class="skip-link">Ale nan kontni prensipal</a>
+
+    <nav class="navbar" role="navigation" aria-label="Navigasyon prensipal">
         <a href="index.html" class="logo">OPAK MNG</a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="main-menu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artist.html">Biografía</a></li>
             <li><a href="discografia.html">Discografía</a></li>
@@ -20,40 +22,143 @@
         </ul>
         <div class="nav-actions">
             <button class="theme-toggle" aria-label="Cambiar tema">🌙</button>
-            <a href="login.html" class="btn btn-primary nav-cta">Acceso</a>
-        </div>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <button class="hamburger" aria-label="Meni ouvri" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <section class="hero">
             <div class="container">
-                <h1>Contacto</h1>
-                <p>¿Tienes alguna consulta o quieres trabajar con nosotros? Escríbenos.</p>
+                <h1>KONTAKTE</h1>
+                <p>W ap fè yon evènman? W bezwen yon rapè? Voye mesaj.</p>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section contact-section">
             <div class="container">
-                <form id="contactForm">
-                    <div style="margin-bottom: 20px;">
-                        <input type="text" name="name" placeholder="Nombre completo" required>
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h2>POKA</h2>
+                        <p class="contact-intro">Mwen se yon rapè ki fè mizik, se yon atis ki fè tout. Si w ap chache yon moun pou fè show ou, pou kolaborasyon, oubyen pou nenpòt lòt bagay, se la ou ye.</p>
+                        
+                        <div class="contact-methods">
+                            <div class="contact-method">
+                                <h3>📧 EMAIL</h3>
+                                <a href="mailto:booking@opakmng.com">booking@opakmng.com</a>
+                                <span class="method-note">Pou booking ak kolaborasyon</span>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <h3>📱 PRESSE</h3>
+                                <a href="tel:+50937000000">+509 3700 0000</a>
+                                <span class="method-note">WhatsApp disponib</span>
+                            </div>
+                            
+                            <div class="contact-method">
+                                <h3>📩 LÒT</h3>
+                                <a href="mailto:info@opakmng.com">info@opakmng.com</a>
+                                <span class="method-note">Pou tout lòt demann</span>
+                            </div>
+                        </div>
+
+                        <div class="social-section">
+                            <h3>SOCIAL MEDIA</h3>
+                            <div class="social-links-large">
+                                <a href="https://instagram.com" class="social-btn" target="_blank">
+                                    <span>📸</span> INSTAGRAM
+                                </a>
+                                <a href="https://tiktok.com" class="social-btn" target="_blank">
+                                    <span>🎵</span> TIKTOK
+                                </a>
+                                <a href="https://youtube.com" class="social-btn" target="_blank">
+                                    <span>📺</span> YOUTUBE
+                                </a>
+                                <a href="https://spotify.com" class="social-btn" target="_blank">
+                                    <span>🎧</span> SPOTIFY
+                                </a>
+                            </div>
+                        </div>
                     </div>
-                    <div style="margin-bottom: 20px;">
-                        <input type="email" name="email" placeholder="Email" required>
+
+                    <div class="contact-form-wrapper">
+                        <h2>Voye Yon Mesaj</h2>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="name">NON OU</label>
+                                <input type="text" id="name" name="name" placeholder="Non konplè ou" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">EMAIL</label>
+                                <input type="email" id="email" name="email" placeholder="email ou" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="type">KISA W VLE?</label>
+                                <select id="type" name="type" required>
+                                    <option value="">Chwazi...</option>
+                                    <option value="booking">FOIRE YON SHOW</option>
+                                    <option value="kolaborasyon">KOLABORASYON</option>
+                                    <option value="fan">FAN / MESAGE</option>
+                                    <option value="lot">LÒT</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">MESAJ</label>
+                                <textarea id="message" name="message" placeholder="Konnenp... Kijan mwen ka ede ou?" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-lg">Voye Mesaj</button>
+                        </form>
                     </div>
-                    <div style="margin-bottom: 20px;">
-                        <input type="text" name="subject" placeholder="Asunto" required>
+                </div>
+            </div>
+        </section>
+
+        <section class="section promoters-section">
+            <div class="container">
+                <h2 class="section-title">POU PWOMOTÈ AK CHWOZI</h2>
+                <p class="section-subtitle">W ap fè yon festival? W ap fè yon pati? W ap fè yon show? Mwen disponib.</p>
+                
+                <div class="promoters-grid">
+                    <div class="promoter-card">
+                        <span class="promoter-icon">🎫</span>
+                        <h3>FOIRE YON SHOW</h3>
+                        <p>45-60 minit setlist ki gen tout pi gwo hit yo. Soundcheckenkli. Produksyon teknik enkli.</p>
+                        <a href="mailto:booking@opakmng.com" class="btn btn-primary">Voye Email</a>
                     </div>
-                    <div style="margin-bottom: 20px;">
-                        <textarea name="message" placeholder="Mensaje" required></textarea>
+                    
+                    <div class="promoter-card">
+                        <span class="promoter-icon">🤝</span>
+                        <h3>KOLABORASYON</h3>
+                        <p>Feat ak lòt atis, kolaborasyon ak patnè, siyasyon espesyal.</p>
+                        <a href="mailto:kolaborasyon@opakmng.com" class="btn btn-primary">Voye Email</a>
                     </div>
-                    <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-                </form>
+                    
+                    <div class="promoter-card">
+                        <span class="promoter-icon">🎤</span>
+                        <h3>FEAT / PRODUKSYON</h3>
+                        <p>Ou bezwen yon rapè pou yon chanson? Pou yon proje? Voye mesaj.</p>
+                        <a href="mailto:info@opakmng.com" class="btn btn-primary">Voye Email</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section cta">
+            <div class="container">
+                <h2>KITE N FÈ YON BAGAY</h2>
+                <p class="cta-subtitle">Ou pa bezwen tape 3 fwa. Yon mesaj ase.</p>
+                <div class="cta-buttons">
+                    <a href="mailto:booking@opakmng.com" class="btn btn-primary">BOOKING</a>
+                    <a href="https://instagram.com" class="btn btn-secondary">INSTAGRAM</a>
+                    <a href="https://wa.me/50937000000" class="btn btn-secondary">WHATSAPP</a>
+                </div>
             </div>
         </section>
     </main>
@@ -71,7 +176,7 @@
                 <a href="#">IG</a>
                 <a href="#">YT</a>
             </div>
-            <p class="copyright">&copy; 2026 Opak MNG. Todos los derechos reservados.</p>
+            <p class="copyright">&copy; 2026 Opak MNG. Tout dwa rezève.</p>
         </div>
     </footer>
 

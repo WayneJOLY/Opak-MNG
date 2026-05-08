@@ -1,16 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ht">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio - Opak MNG</title>
+    <meta name="description" content="Opak MNG - Rapè ayisyen. Mizik autentik soti nan Pòtoprens.">
+    <title>Opak MNG</title>
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <a href="index.html" class="logo">OPAK MNG</a>
-        <ul class="nav-links">
-            <li><a href="index.html" class="active">Inicio</a></li>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Ale nan kontni prensipal</a>
+
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Navigasyon prensipal">
+        <a href="index.html" class="logo" aria-label="Opak MNG - Paj ale">OPAK MNG</a>
+        <ul class="nav-links" id="main-menu">
+            <li><a href="index.html">Inicio</a></li>
             <li><a href="artist.html">Biografía</a></li>
             <li><a href="discografia.html">Discografía</a></li>
             <li><a href="multimedia.html">Multimedia</a></li>
@@ -18,84 +23,97 @@
             <li><a href="blog.html">Noticias</a></li>
             <li><a href="contact.html">Contacto</a></li>
         </ul>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+        <div class="nav-actions">
+            <button class="theme-toggle" aria-label="Cambiar tema">🌙</button>
+            <button class="hamburger" aria-label="Meni ouvri" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <main>
-        <section class="hero">
-            <div class="hero-bg"></div>
+    <div class="sticky-cta">
+        <a href="https://spotify.com" class="cta-item" target="_blank">🎧 ESCUCHAR</a>
+        <a href="https://instagram.com" class="cta-item" target="_blank">📸 SEGUIR</a>
+        <a href="contact.html" class="cta-item cta-highlight">🎤 BOOKING</a>
+    </div>
+
+    <main id="main-content" role="main">
+        
+        <!-- Hero Section -->
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero-bg" aria-hidden="true"></div>
             <div class="container">
                 <div class="hero-content">
-                    <span class="hero-tag">NUEVO ÁLBUBM 2026</span>
-                    <h1>OPAK MNG</h1>
-                    <p class="hero-tagline">"Desde Puerto Príncipe a conquistar el mundo"</p>
+                    <span class="hero-tag" aria-label="Nouvo albòm">Nouvo Albòm 2026</span>
+                    <h1 id="hero-title">OPAK MNG</h1>
+                    <p class="hero-tagline">"Novo mixtape 10 Me 2026"</p>
                     <div class="hero-buttons">
-                        <a href="https://spotify.com" class="btn btn-primary" target="_blank">ESCUCHAR AHORA</a>
-                        <a href="https://instagram.com" class="btn btn-secondary">SEGUIR</a>
+                        <a href="https://spotify.com" class="btn btn-primary" target="_blank" rel="noopener">Tande kèk trak</a>
+                        <a href="https://instagram.com" class="btn btn-secondary" rel="noopener">Swiv</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section latest-release">
+        <!-- Latest Release Section -->
+        <section class="section latest-release" aria-labelledby="release-title">
             <div class="container">
-                <h2 class="section-title">ÚLTIMO LANZAMIENTO</h2>
+                <h2 id="release-title" class="section-title">Dènye Mizik</h2>
                 <div class="grid grid-2">
                     <div class="release-cover">
-                        <div class="album-placeholder">PORTADA</div>
+                        <div class="album-placeholder" role="img" aria-label="Albòm AKÈ NOU">🎵</div>
                     </div>
                     <div class="release-info">
                         <h3>AKÈ NOU (VOIX OU)</h3>
-                        <p>10 tracks全新mizisyon kite soti nan Pòtoprens. Misyon nou: fè wè touye lemond lan sa wi ye.</p>
+                        <p>10 pyès mizik ki soti nan Pòtoprens. Misyon nou: fè tout lemonn tande vwa peyi a.</p>
                         <div class="release-links">
-                            <a href="https://spotify.com" class="btn btn-primary">SPOTIFY</a>
-                            <a href="https://youtube.com" class="btn btn-secondary">YOUTUBE</a>
+                            <a href="https://spotify.com" class="btn btn-primary" target="_blank" rel="noopener">Spotify</a>
+                            <a href="https://youtube.com" class="btn btn-secondary" target="_blank" rel="noopener">YouTube</a>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section music-preview">
+        <!-- Music Preview Section -->
+        <section class="section music-preview" aria-labelledby="songs-title">
             <div class="container">
-                <h2 class="section-title">TOP CANCIONES</h2>
-                <div class="track-list">
-                    <div class="track-item">
-                        <span class="track-number">01</span>
+                <h2 id="songs-title" class="section-title">Pyès Mizik(Pop)</h2>
+                <div class="track-list" role="list">
+                    <article class="track-item" role="listitem">
+                        <span class="track-number" aria-label="Nimewo 1">01</span>
                         <div class="track-info">
-                            <h4>POToprens</h4>
-                            <p>Akè Nou | 3:45</p>
+                            <h4>Potoprens</h4>
+                            <p>Albòm: Akè Nou | Tan: 3:45</p>
                         </div>
-                        <a href="#" class="btn-play">▶</a>
-                    </div>
-                    <div class="track-item">
+                        <a href="#" class="btn-play" aria-label="Jwe POToprens" role="button">▶</a>
+                    </article>
+                    <article class="track-item" role="listitem">
                         <span class="track-number">02</span>
                         <div class="track-info">
                             <h4>Tanpri</h4>
-                            <p>Akè Nou | 4:12</p>
+                            <p>Albòm: Akè Nou | Tan: 4:12</p>
                         </div>
-                        <a href="#" class="btn-play">▶</a>
-                    </div>
-                    <div class="track-item">
+                        <a href="#" class="btn-play" aria-label="Jwe Tanpri" role="button">▶</a>
+                    </article>
+                    <article class="track-item" role="listitem">
                         <span class="track-number">03</span>
                         <div class="track-info">
                             <h4>Fè Wap</h4>
-                            <p>Akè Nou | 3:30</p>
+                            <p>Albòm: Akè Nou | Tan: 3:30</p>
                         </div>
-                        <a href="#" class="btn-play">▶</a>
-                    </div>
-                    <div class="track-item">
+                        <a href="#" class="btn-play" aria-label="Jwe Fè Wap" role="button">▶</a>
+                    </article>
+                    <article class="track-item" role="listitem">
                         <span class="track-number">04</span>
                         <div class="track-info">
                             <h4>M pa janm</h4>
-                            <p>Akè Nou | 4:05</p>
+                            <p>Albòm: Akè Nou | Tan: 4:05</p>
                         </div>
-                        <a href="#" class="btn-play">▶</a>
-                    </div>
+                        <a href="#" class="btn-play" aria-label="Jwe M pa janm" role="button">▶</a>
+                    </article>
                 </div>
             </div>
         </section>
@@ -114,7 +132,7 @@
                     </div>
                 </div>
                 <div class="section-footer">
-                    <a href="multimedia.html" class="btn btn-primary">VER TODOS LOS VÍDEOS</a>
+                    <a href="multimedia.html" class="btn btn-primary">WÈ TOU VIDEO YO</a>
                 </div>
             </div>
         </section>
@@ -196,35 +214,44 @@
             </div>
         </section>
 
-        <section class="section cta">
+        <section class="section cta" aria-labelledby="cta-title">
             <div class="container">
-                <h2>KLIKK, SWIV, BIL</h2>
-                <p class="cta-subtitle">Wap pare pou tande nuan? Wap vle fè yon show? Voye mesaj la!</p>
+                <h2 id="cta-title">Ekoute, Swiv, Boke</h2>
+                <p class="cta-subtitle">Wap pare pou tande nuan? Wap vle fè yon show? Voye mesaj!</p>
                 <div class="cta-buttons">
-                    <a href="https://spotify.com" class="btn btn-primary" target="_blank">SPOTIFY</a>
-                    <a href="https://instagram.com" class="btn btn-primary" target="_blank">INSTAGRAM</a>
-                    <a href="contact.html" class="btn btn-secondary">BOOKING</a>
+                    <a href="https://spotify.com" class="btn btn-primary" target="_blank" rel="noopener">Spotify</a>
+                    <a href="https://instagram.com" class="btn btn-primary" target="_blank" rel="noopener">Instagram</a>
+                    <a href="contact.html" class="btn btn-secondary">Boke</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer class="footer">
+    <!-- Footer -->
+    <footer class="footer" role="contentinfo">
         <div class="container footer-content">
-            <div class="footer-links">
-                <a href="index.html">Inicio</a>
-                <a href="artist.html">Biografía</a>
-                <a href="multimedia.html">Multimedia</a>
-                <a href="contact.html">Contacto</a>
-            </div>
+            <nav aria-label="Navigasyon footer">
+                <div class="footer-links">
+                    <a href="index.html">Inicio</a>
+                    <a href="artist.html">Biografía</a>
+                    <a href="multimedia.html">Multimedia</a>
+                    <a href="contact.html">Contacto</a>
+                </div>
+            </nav>
             <div class="social-links">
-                <a href="#">FB</a>
-                <a href="#">IG</a>
-                <a href="#">YT</a>
+                <a href="https://facebook.com" target="_blank" rel="noopener" aria-label="Facebook">FB</a>
+                <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram">IG</a>
+                <a href="https://youtube.com" target="_blank" rel="noopener" aria-label="YouTube">YT</a>
             </div>
-            <p class="copyright">&copy; 2026 Opak MNG. Todos los derechos reservados.</p>
+            <p class="copyright">&copy; 2026 Opak MNG. Tout dwa rezève.</p>
         </div>
     </footer>
+
+    <!-- Floating CTA for mobile -->
+    <div class="floating-cta" aria-label=" Aksion rapid">
+        <a href="https://spotify.com" class="float-btn" target="_blank" rel="noopener" aria-label="Ekoute sou Spotify">🎧</a>
+        <a href="contact.html" class="float-btn float-btn-primary" aria-label="Boke yon show">🎤</a>
+    </div>
 
     <script src="assets/js/main.js"></script>
 </body>

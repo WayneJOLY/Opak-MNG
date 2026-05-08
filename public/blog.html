@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="ht">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,9 +7,11 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <nav class="navbar">
+    <a href="#main-content" class="skip-link">Ale nan kontni prensipal</a>
+
+    <nav class="navbar" role="navigation" aria-label="Navigasyon prensipal">
         <a href="index.html" class="logo">OPAK MNG</a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="main-menu">
             <li><a href="index.html">Inicio</a></li>
             <li><a href="artist.html">Biografía</a></li>
             <li><a href="discografia.html">Discografía</a></li>
@@ -20,16 +22,15 @@
         </ul>
         <div class="nav-actions">
             <button class="theme-toggle" aria-label="Cambiar tema">🌙</button>
-            <a href="login.html" class="btn btn-primary nav-cta">Acceso</a>
-        </div>
-        <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <button class="hamburger" aria-label="Meni ouvri" aria-expanded="false" aria-controls="main-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </nav>
 
-    <main>
+    <main id="main-content">
         <section class="hero">
             <div class="container">
                 <h1>Blog</h1>
@@ -75,7 +76,7 @@
                 <a href="#">IG</a>
                 <a href="#">YT</a>
             </div>
-            <p class="copyright">&copy; 2026 Opak MNG. Todos los derechos reservados.</p>
+            <p class="copyright">&copy; 2026 Opak MNG. Tout dwa rezève.</p>
         </div>
     </footer>
 
