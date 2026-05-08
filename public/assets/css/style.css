@@ -1954,7 +1954,13 @@ form button {
     }
 }
 
-/* Mobile: 1 track-item visible a la vez (fuerza !important contra inline JS) */
+/*
+  Clave del prompt — Mobile carrusel:
+  - DOM final: .track-list > .track-list__track > .track-item (cada uno al 100%)
+  - El JS ajusta dinámicamente visibleItems=1, flexBasis, totalSlides y dots
+  - El HTML original solo necesita data-carousel; el DOM del carrusel se genera solo
+  !important fuerza 100% contra el flexBasis inline que JS calculó para desktop
+*/
 @media (max-width: 768px) {
     .track-list__track .track-item {
         flex: 0 0 100% !important;

@@ -6,6 +6,11 @@ const App = {
         this.initStickyCTA();
         this.initTrackCarousels();
         this.initForms();
+        this.initResponsiveCarousels();
+    },
+
+    isMobile: function() {
+        return window.matchMedia('(max-width: 768px)').matches;
     },
 
     initTheme: function() {
@@ -100,86 +105,123 @@ const App = {
     /* Inicializa carruseles: cada .track-list[data-carousel] se transforma en slider horizontal */
     initTrackCarousels: function() {
         const lists = document.querySelectorAll('.track-list[data-carousel]');
+        this.carousels = [];
         lists.forEach(list => {
             const items = list.querySelectorAll('.track-item');
             if (items.length < 2) return;
-            /* Lee config desde data-atributos HTML: items visibles y autoplay en ms */
-            const visibleItems = parseInt(list.dataset.carouselItems) || 3;
-            const autoplay = parseInt(list.dataset.carouselAutoplay) || 0;
-            /* Crea contenedor interno .track-list__track que agrupa solo los .track-item */
+            const c = {
+                list, items,
+                originalItems: parseInt(list.dataset.carouselItems) || 3,
+                autoplay: parseInt(list.dataset.carouselAutoplay) || 0,
+                current: 0
+            };
+            c.visibleItems = this.isMobile() ? 1 : c.originalItems;
             const title = list.querySelector('.track-list-title');
             const track = document.createElement('div');
             track.className = 'track-list__track';
+            c.track = track;
             items.forEach(item => track.appendChild(item));
-            /* Inserta el track después del título si existe, si no al inicio del list */
             if (title) list.insertBefore(track, title.nextSibling);
             else list.prepend(track);
-            /* Calcula y aplica flex-basis inline para que N items quepan sin scroll */
-            const gapTotal = 16 * (visibleItems - 1);
-            const itemWidth = `calc((100% - ${gapTotal}px) / ${visibleItems})`;
+            const gapTotal = 16 * (c.visibleItems - 1);
+            const itemWidth = `calc((100% - ${gapTotal}px) / ${c.visibleItems})`;
             items.forEach(item => item.style.flexBasis = itemWidth);
-            /* Navegación: botones prev/next */
             const nav = document.createElement('div');
             nav.className = 'track-list__nav';
             nav.innerHTML = '<button class="track-list__btn" aria-label="Prev">\u2039</button><button class="track-list__btn" aria-label="Next">\u203A</button>';
             list.appendChild(nav);
-            const prevBtn = nav.firstElementChild;
-            const nextBtn = nav.lastElementChild;
-            /* Dots indicadores: un dot por grupo de items visibles */
-            const totalSlides = Math.max(1, Math.ceil(items.length / visibleItems));
+            c.prevBtn = nav.firstElementChild;
+            c.nextBtn = nav.lastElementChild;
+            c.totalSlides = Math.max(1, Math.ceil(items.length / c.visibleItems));
             const dots = document.createElement('div');
             dots.className = 'track-list__dots';
-            for (let i = 0; i < totalSlides; i++) {
+            c.dots = dots;
+            for (let i = 0; i < c.totalSlides; i++) {
                 const dot = document.createElement('button');
                 dot.className = 'track-list__dot' + (i === 0 ? ' track-list__dot--active' : '');
                 dot.setAttribute('aria-label', 'Slide ' + (i + 1));
                 dots.appendChild(dot);
             }
             list.appendChild(dots);
-            let current = 0;
-            /* scrollToSlide: mueve el track por grupos de items visibles */
             const scrollToSlide = (index) => {
-                const slideWidth = items[0].offsetWidth + 16;
-                track.scrollTo({ left: slideWidth * index * visibleItems, behavior: 'smooth' });
-                dots.querySelectorAll('.track-list__dot').forEach((d, i) => {
+                const slideWidth = c.items[0].offsetWidth + 16;
+                c.track.scrollTo({ left: slideWidth * index * c.visibleItems, behavior: 'smooth' });
+                c.dots.querySelectorAll('.track-list__dot').forEach((d, i) => {
                     d.classList.toggle('track-list__dot--active', i === index);
                 });
-                prevBtn.disabled = index === 0;
-                nextBtn.disabled = index >= totalSlides - 1;
+                c.prevBtn.disabled = index === 0;
+                c.nextBtn.disabled = index >= c.totalSlides - 1;
             };
-            prevBtn.addEventListener('click', () => { current = Math.max(0, current - 1); scrollToSlide(current); });
-            nextBtn.addEventListener('click', () => { current = Math.min(totalSlides - 1, current + 1); scrollToSlide(current); });
-            dots.querySelectorAll('.track-list__dot').forEach((dot, i) => {
-                dot.addEventListener('click', () => { current = i; scrollToSlide(current); });
+            c.prevBtn.addEventListener('click', () => { c.current = Math.max(0, c.current - 1); scrollToSlide(c.current); });
+            c.nextBtn.addEventListener('click', () => { c.current = Math.min(c.totalSlides - 1, c.current + 1); scrollToSlide(c.current); });
+            c.dots.querySelectorAll('.track-list__dot').forEach((dot, i) => {
+                dot.addEventListener('click', () => { c.current = i; scrollToSlide(c.current); });
             });
-            /* requestAnimationFrame asegura que offsetWidth esté disponible al iniciar */
             requestAnimationFrame(() => scrollToSlide(0));
-            /* Autoplay: avanza automáticamente, pausa al hover */
-            if (autoplay > 0) {
+            if (c.autoplay > 0) {
                 let interval = setInterval(() => {
-                    current = (current + 1) % totalSlides;
-                    scrollToSlide(current);
-                }, autoplay);
-                track.addEventListener('mouseenter', () => clearInterval(interval));
-                track.addEventListener('mouseleave', () => {
+                    c.current = (c.current + 1) % c.totalSlides;
+                    scrollToSlide(c.current);
+                }, c.autoplay);
+                c.track.addEventListener('mouseenter', () => clearInterval(interval));
+                c.track.addEventListener('mouseleave', () => {
                     interval = setInterval(() => {
-                        current = (current + 1) % totalSlides;
-                        scrollToSlide(current);
-                    }, autoplay);
+                        c.current = (c.current + 1) % c.totalSlides;
+                        scrollToSlide(c.current);
+                    }, c.autoplay);
                 });
             }
-            /* Sincroniza dots/buttons cuando el usuario hace scroll manual o táctil */
-            track.addEventListener('scroll', () => {
-                const slideWidth = items[0].offsetWidth + 16;
-                const idx = Math.round(track.scrollLeft / (slideWidth * visibleItems));
-                if (idx !== current && idx >= 0 && idx < totalSlides) {
-                    current = idx;
-                    dots.querySelectorAll('.track-list__dot').forEach((d, i) => {
-                        d.classList.toggle('track-list__dot--active', i === current);
+            c.track.addEventListener('scroll', () => {
+                const slideWidth = c.items[0].offsetWidth + 16;
+                const idx = Math.round(c.track.scrollLeft / (slideWidth * c.visibleItems));
+                if (idx !== c.current && idx >= 0 && idx < c.totalSlides) {
+                    c.current = idx;
+                    c.dots.querySelectorAll('.track-list__dot').forEach((d, i) => {
+                        d.classList.toggle('track-list__dot--active', i === c.current);
                     });
-                    prevBtn.disabled = current === 0;
-                    nextBtn.disabled = current >= totalSlides - 1;
+                    c.prevBtn.disabled = c.current === 0;
+                    c.nextBtn.disabled = c.current >= c.totalSlides - 1;
                 }
+            });
+            this.carousels.push(c);
+        });
+    },
+
+    /* Refresca carruseles al cambiar de mobile a desktop y viceversa */
+    initResponsiveCarousels: function() {
+        const mql = window.matchMedia('(max-width: 768px)');
+        mql.addListener(() => {
+            this.carousels.forEach(c => {
+                const isMobile = this.isMobile();
+                const newVisible = isMobile ? 1 : c.originalItems;
+                if (newVisible === c.visibleItems) return;
+                c.visibleItems = newVisible;
+                const gapTotal = 16 * (newVisible - 1);
+                const itemWidth = `calc((100% - ${gapTotal}px) / ${newVisible})`;
+                c.items.forEach(item => item.style.flexBasis = itemWidth);
+                const newTotal = Math.max(1, Math.ceil(c.items.length / newVisible));
+                c.totalSlides = newTotal;
+                c.current = 0;
+                c.dots.innerHTML = '';
+                const scrollFn = (index) => {
+                    const slideWidth = c.items[0].offsetWidth + 16;
+                    c.track.scrollTo({ left: slideWidth * index * newVisible, behavior: 'smooth' });
+                    c.dots.querySelectorAll('.track-list__dot').forEach((d, i) => {
+                        d.classList.toggle('track-list__dot--active', i === index);
+                    });
+                    c.prevBtn.disabled = index === 0;
+                    c.nextBtn.disabled = index >= newTotal - 1;
+                };
+                for (let i = 0; i < newTotal; i++) {
+                    const dot = document.createElement('button');
+                    dot.className = 'track-list__dot' + (i === 0 ? ' track-list__dot--active' : '');
+                    dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+                    dot.addEventListener('click', () => { c.current = i; scrollFn(i); });
+                    c.dots.appendChild(dot);
+                }
+                c.track.scrollTo({ left: 0, behavior: 'smooth' });
+                c.prevBtn.disabled = true;
+                c.nextBtn.disabled = newTotal <= 1;
             });
         });
     },
