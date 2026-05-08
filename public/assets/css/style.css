@@ -575,6 +575,7 @@ form button {
     transform: scale(1.1);
 }
 
+/* Carrusel: contenedor interno scrolleable que contiene solo .track-item */
 .track-list__track {
     display: flex;
     gap: 16px;
@@ -589,12 +590,14 @@ form button {
     display: none;
 }
 
+/* Cada track-item dentro del carrusel: snap al inicio, ancho controlado por JS inline */
 .track-list__track .track-item {
     flex: 0 0 auto;
     scroll-snap-align: start;
     min-width: 0;
 }
 
+/* Navegación del carrusel: botones prev/next */
 .track-list__nav {
     display: flex;
     justify-content: center;
@@ -631,6 +634,7 @@ form button {
     color: var(--text-secondary);
 }
 
+/* Dots indicadores de slide activo */
 .track-list__dots {
     display: flex;
     justify-content: center;
@@ -1950,6 +1954,7 @@ form button {
     }
 }
 
+/* Mobile: 1 track-item visible a la vez (fuerza !important contra inline JS) */
 @media (max-width: 768px) {
     .track-list__track .track-item {
         flex: 0 0 100% !important;

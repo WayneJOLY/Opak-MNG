@@ -97,28 +97,35 @@ const App = {
         observer.observe(footer);
     },
 
+    /* Inicializa carruseles: cada .track-list[data-carousel] se transforma en slider horizontal */
     initTrackCarousels: function() {
         const lists = document.querySelectorAll('.track-list[data-carousel]');
         lists.forEach(list => {
             const items = list.querySelectorAll('.track-item');
             if (items.length < 2) return;
+            /* Lee config desde data-atributos HTML: items visibles y autoplay en ms */
             const visibleItems = parseInt(list.dataset.carouselItems) || 3;
             const autoplay = parseInt(list.dataset.carouselAutoplay) || 0;
+            /* Crea contenedor interno .track-list__track que agrupa solo los .track-item */
             const title = list.querySelector('.track-list-title');
             const track = document.createElement('div');
             track.className = 'track-list__track';
             items.forEach(item => track.appendChild(item));
+            /* Inserta el track después del título si existe, si no al inicio del list */
             if (title) list.insertBefore(track, title.nextSibling);
             else list.prepend(track);
+            /* Calcula y aplica flex-basis inline para que N items quepan sin scroll */
             const gapTotal = 16 * (visibleItems - 1);
             const itemWidth = `calc((100% - ${gapTotal}px) / ${visibleItems})`;
             items.forEach(item => item.style.flexBasis = itemWidth);
+            /* Navegación: botones prev/next */
             const nav = document.createElement('div');
             nav.className = 'track-list__nav';
             nav.innerHTML = '<button class="track-list__btn" aria-label="Prev">\u2039</button><button class="track-list__btn" aria-label="Next">\u203A</button>';
             list.appendChild(nav);
             const prevBtn = nav.firstElementChild;
             const nextBtn = nav.lastElementChild;
+            /* Dots indicadores: un dot por grupo de items visibles */
             const totalSlides = Math.max(1, Math.ceil(items.length / visibleItems));
             const dots = document.createElement('div');
             dots.className = 'track-list__dots';
@@ -130,6 +137,7 @@ const App = {
             }
             list.appendChild(dots);
             let current = 0;
+            /* scrollToSlide: mueve el track por grupos de items visibles */
             const scrollToSlide = (index) => {
                 const slideWidth = items[0].offsetWidth + 16;
                 track.scrollTo({ left: slideWidth * index * visibleItems, behavior: 'smooth' });
@@ -144,7 +152,9 @@ const App = {
             dots.querySelectorAll('.track-list__dot').forEach((dot, i) => {
                 dot.addEventListener('click', () => { current = i; scrollToSlide(current); });
             });
+            /* requestAnimationFrame asegura que offsetWidth esté disponible al iniciar */
             requestAnimationFrame(() => scrollToSlide(0));
+            /* Autoplay: avanza automáticamente, pausa al hover */
             if (autoplay > 0) {
                 let interval = setInterval(() => {
                     current = (current + 1) % totalSlides;
@@ -158,6 +168,7 @@ const App = {
                     }, autoplay);
                 });
             }
+            /* Sincroniza dots/buttons cuando el usuario hace scroll manual o táctil */
             track.addEventListener('scroll', () => {
                 const slideWidth = items[0].offsetWidth + 16;
                 const idx = Math.round(track.scrollLeft / (slideWidth * visibleItems));
