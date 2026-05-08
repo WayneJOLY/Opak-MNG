@@ -3,6 +3,7 @@ const App = {
         this.initTheme();
         this.initNavigation();
         this.initMobileMenu();
+        this.initStickyCTA();
         this.initForms();
     },
 
@@ -83,6 +84,16 @@ const App = {
                 }
             });
         }
+    },
+
+    initStickyCTA: function() {
+        const cta = document.querySelector('.sticky-cta');
+        const footer = document.querySelector('.footer');
+        if (!cta || !footer) return;
+        const observer = new IntersectionObserver(([entry]) => {
+            cta.classList.toggle('sticky-cta--hidden', entry.isIntersecting);
+        }, { threshold: 0 });
+        observer.observe(footer);
     },
 
     initForms: function() {
